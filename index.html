@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fullstack developer portfolio — projects, languages, and links from GitHub.">
+    <meta property="og:title" content="Jer Hub — Fullstack Developer">
+    <meta property="og:description" content="Fullstack developer portfolio — projects, languages, and links from GitHub.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <title>Jer Hub — Fullstack Developer</title>
     <link rel="icon" type="image/svg+xml" href="images/jellyfish-icon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -21,139 +26,7 @@
             }
         }
     </script>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0a0a1a;color:#e2e8f0;font-family:'Inter',sans-serif;overflow-x:hidden}
-        ::-webkit-scrollbar{width:6px}
-        ::-webkit-scrollbar-track{background:#0a0a1a}
-        ::-webkit-scrollbar-thumb{background:#1e293b;border-radius:3px}
-        ::-webkit-scrollbar-thumb:hover{background:#00d4ff44}
-
-        .jellyfish-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
-        .jellyfish{position:absolute;filter:blur(0.5px);opacity:0.7}
-        .jelly-body{
-            width:var(--size);height:calc(var(--size)*0.7);
-            background:radial-gradient(ellipse at 50% 30%,var(--color-light) 0%,var(--color) 40%,transparent 70%);
-            border-radius:50% 50% 35% 35%;position:relative;
-            box-shadow:0 0 calc(var(--size)*0.5) var(--glow),inset 0 0 calc(var(--size)*0.3) var(--glow-inner);
-            animation:jellyPulse var(--pulse-speed) ease-in-out infinite;
-        }
-        .jelly-body::before{content:'';position:absolute;top:15%;left:20%;width:60%;height:40%;background:radial-gradient(ellipse,var(--color-light) 0%,transparent 70%);border-radius:50%;opacity:0.6}
-        .jelly-body::after{content:'';position:absolute;bottom:-2px;left:10%;width:80%;height:30%;background:linear-gradient(to bottom,var(--color) 0%,transparent 100%);border-radius:0 0 50% 50%;opacity:0.4}
-        .tentacles{position:absolute;top:calc(var(--size)*0.65);left:50%;transform:translateX(-50%);width:calc(var(--size)*0.8);height:calc(var(--size)*1.2)}
-        .tentacle{position:absolute;width:2px;height:100%;bottom:0;background:linear-gradient(to bottom,var(--color) 0%,transparent 80%);opacity:0.5;transform-origin:top center;animation:tentacleWave var(--wave-speed) ease-in-out infinite;border-radius:0 0 2px 2px}
-        .tentacle:nth-child(1){left:15%;animation-delay:0s}
-        .tentacle:nth-child(2){left:30%;animation-delay:-0.3s;height:85%}
-        .tentacle:nth-child(3){left:45%;animation-delay:-0.6s;height:95%}
-        .tentacle:nth-child(4){left:55%;animation-delay:-0.9s;height:80%}
-        .tentacle:nth-child(5){left:70%;animation-delay:-1.2s;height:90%}
-        .tentacle:nth-child(6){left:85%;animation-delay:-0.4s;height:75%}
-        .oral-arms{position:absolute;top:calc(var(--size)*0.6);left:50%;transform:translateX(-50%);width:calc(var(--size)*0.4);height:calc(var(--size)*0.9)}
-        .oral-arm{position:absolute;width:3px;bottom:0;background:linear-gradient(to bottom,var(--color-light) 0%,var(--color) 30%,transparent 90%);opacity:0.35;transform-origin:top center;border-radius:2px}
-        .oral-arm:nth-child(1){left:25%;height:100%;animation:oralWave 3s ease-in-out infinite}
-        .oral-arm:nth-child(2){left:45%;height:85%;animation:oralWave 3.5s ease-in-out infinite -1s}
-        .oral-arm:nth-child(3){left:65%;height:90%;animation:oralWave 2.8s ease-in-out infinite -0.5s}
-
-        @keyframes jellyFloat{0%,100%{transform:translateY(0) translateX(0) rotate(0deg)}25%{transform:translateY(-30px) translateX(15px) rotate(2deg)}50%{transform:translateY(-10px) translateX(-10px) rotate(-1deg)}75%{transform:translateY(-40px) translateX(5px) rotate(1.5deg)}}
-        @keyframes jellyPulse{0%,100%{transform:scaleX(1) scaleY(1)}30%{transform:scaleX(1.08) scaleY(0.92)}60%{transform:scaleX(0.95) scaleY(1.05)}}
-        @keyframes tentacleWave{0%,100%{transform:rotate(-8deg) skewX(-3deg)}50%{transform:rotate(8deg) skewX(3deg)}}
-        @keyframes oralWave{0%,100%{transform:rotate(-5deg) scaleY(1)}50%{transform:rotate(5deg) scaleY(0.9)}}
-
-        .particle{position:fixed;width:2px;height:2px;background:var(--p-color,#00d4ff);border-radius:50%;pointer-events:none;opacity:0;animation:particleFloat var(--p-duration,8s) linear infinite;animation-delay:var(--p-delay,0s);box-shadow:0 0 6px var(--p-color,#00d4ff)}
-        @keyframes particleFloat{0%{opacity:0;transform:translateY(100vh) scale(0)}10%{opacity:0.8}90%{opacity:0.3}100%{opacity:0;transform:translateY(-10vh) scale(1)}}
-
-        .gradient-text{background:linear-gradient(135deg,#00d4ff 0%,#7b61ff 50%,#ff61d8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .gradient-text-subtle{background:linear-gradient(135deg,#e2e8f0 0%,#94a3b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
-        .glass-card{background:linear-gradient(135deg,rgba(255,255,255,0.03) 0%,rgba(255,255,255,0.01) 100%);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(10px);transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
-        .glass-card:hover{border-color:rgba(0,212,255,0.15);background:linear-gradient(135deg,rgba(0,212,255,0.04) 0%,rgba(123,97,255,0.02) 100%);transform:translateY(-4px);box-shadow:0 20px 60px -15px rgba(0,212,255,0.1),0 0 40px -10px rgba(123,97,255,0.08)}
-
-        .repo-card{background:linear-gradient(135deg,rgba(255,255,255,0.025) 0%,rgba(255,255,255,0.008) 100%);border:1px solid rgba(255,255,255,0.05);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
-        .repo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,255,0.3),rgba(123,97,255,0.3),transparent);opacity:0;transition:opacity 0.4s}
-        .repo-card:hover::before{opacity:1}
-        .repo-card:hover{border-color:rgba(0,212,255,0.12);transform:translateY(-2px);box-shadow:0 15px 50px -12px rgba(0,0,0,0.5),0 0 30px -8px rgba(0,212,255,0.06)}
-
-        .skill-pill{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);transition:all 0.3s}
-        .skill-pill:hover{background:rgba(0,212,255,0.08);border-color:rgba(0,212,255,0.2);box-shadow:0 0 20px -5px rgba(0,212,255,0.15)}
-
-        .nav-link{position:relative;transition:color 0.3s}
-        .nav-link::after{content:'';position:absolute;bottom:-4px;left:50%;width:0;height:1px;background:linear-gradient(90deg,#00d4ff,#7b61ff);transition:all 0.3s;transform:translateX(-50%)}
-        .nav-link:hover::after{width:100%}
-        .nav-link:hover{color:#00d4ff}
-
-        .btn-glow{position:relative;overflow:hidden;transition:all 0.3s}
-        .btn-glow:hover{box-shadow:0 0 30px -5px rgba(0,212,255,0.3);transform:translateY(-1px)}
-
-        .reveal{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.4,0,0.2,1)}
-        .reveal.active{opacity:1;transform:translateY(0)}
-
-        .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:0.15}
-        .lang-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
-
-        .mobile-menu{transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1)}
-        .mobile-menu.open{transform:translateX(0)}
-
-        .cursor-blink{animation:blink 1s step-end infinite}
-        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-        .stat-glow{text-shadow:0 0 30px rgba(0,212,255,0.3)}
-
-        .lang-bar{height:6px;border-radius:3px;transition:width 1s cubic-bezier(0.4,0,0.2,1)}
-
-        .skeleton{background:linear-gradient(90deg,rgba(255,255,255,0.03) 25%,rgba(255,255,255,0.06) 50%,rgba(255,255,255,0.03) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:8px}
-        @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-
-
-
-        .nav-avatar{width:32px;height:32px;border-radius:8px;object-fit:cover;background:#1e293b;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s}
-        .nav-avatar:hover{border-color:rgba(0,212,255,0.3);box-shadow:0 0 15px -3px rgba(0,212,255,0.2)}
-
-        .github-icon-inline{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-
-        /* ── Nav Jellyfish ── */
-        .nav-jelly{flex-shrink:0;width:24px;height:24px}
-        .nav-jelly-bell{transition:all 0.4s}
-        .group:hover .nav-jelly-bell{filter:drop-shadow(0 0 6px rgba(0,212,255,0.5))}
-        .nav-jelly-tent{transform-origin:var(--tx) var(--ty);animation:tentSway var(--spd,2.4s) ease-in-out infinite;animation-delay:var(--td,0s)}
-        @keyframes tentSway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(var(--sw,5deg))}}
-
-        /* ── Hero Redesign ── */
-        .hero-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
-        @media(min-width:768px){.hero-grid{grid-template-columns:1fr 1.2fr;gap:5rem}}
-
-        .hero-avatar-wrapper{position:relative;display:flex;justify-content:center;align-items:center}
-        .hero-avatar-glow{position:absolute;inset:-12px;border-radius:50%;background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(123,97,255,0.15),rgba(255,97,216,0.1));filter:blur(24px);opacity:0;transition:opacity 1.2s ease}
-        .hero-avatar-glow.active{opacity:1}
-        .hero-avatar-img{width:180px;height:180px;border-radius:50%;object-fit:cover;position:relative;z-index:1;border:2px solid rgba(255,255,255,0.08);transition:all 0.6s ease}
-        @media(min-width:768px){.hero-avatar-img{width:260px;height:260px}}
-        .hero-avatar-img:hover{border-color:rgba(255,255,255,0.18);transform:scale(1.02)}
-
-        .hero-avatar-ring{position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);z-index:0}
-        .hero-avatar-dots{position:absolute;inset:-30px;border-radius:50%;border:1px dashed rgba(255,255,255,0.03);z-index:0;animation:heroDotSpin 30s linear infinite}
-        @keyframes heroDotSpin{to{transform:rotate(360deg)}}
-
-        .hero-tag{display:inline-flex;align-items:center;gap:0.5rem;padding:0.35rem 1rem;border-radius:9999px;font-size:0.75rem;font-weight:500;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.12);color:#94a3b8;margin-bottom:1.5rem}
-        .hero-tag-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px rgba(74,222,128,0.5)}
-
-        .hero-greeting{font-size:0.875rem;color:#64748b;font-weight:500;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem}
-        .hero-name{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1.08;letter-spacing:-0.02em;margin-bottom:0.75rem}
-        .hero-role{font-size:clamp(1.05rem,2vw,1.25rem);color:#94a3b8;font-weight:400;line-height:1.5;margin-bottom:1.5rem;max-width:32rem}
-
-        .hero-divider{width:3rem;height:1px;background:linear-gradient(90deg,rgba(0,212,255,0.6),rgba(123,97,255,0.3),transparent);margin-bottom:1.5rem}
-
-        .hero-stats-row{display:inline-flex;gap:0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.015);margin-top:2rem}
-        .hero-stat-card{display:flex;flex-direction:column;align-items:center;padding:1rem 1.5rem;border-right:1px solid rgba(255,255,255,0.04);min-width:80px}
-        .hero-stat-card:last-child{border-right:none}
-        .hero-stat-num{font-size:1.5rem;font-weight:700;color:#fff;text-shadow:0 0 20px rgba(0,212,255,0.2)}
-        .hero-stat-label{font-size:0.65rem;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;margin-top:0.15rem}
-
-        .btn-primary{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;border-radius:12px;font-size:0.875rem;font-weight:600;color:#fff;background:linear-gradient(135deg,#00d4ff,#7b61ff);transition:all 0.3s;position:relative;overflow:hidden}
-        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px -12px rgba(0,212,255,0.4)}
-        .btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);opacity:0;transition:opacity 0.3s}
-        .btn-primary:hover::after{opacity:1}
-
-        .btn-ghost{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;border-radius:12px;font-size:0.875rem;font-weight:500;color:#94a3b8;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);transition:all 0.3s}
-        .btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,0.18);background:rgba(255,255,255,0.06);transform:translateY(-2px)}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -187,12 +60,12 @@
                     GitHub
                 </a>
             </div>
-            <button id="mobileMenuBtn" class="md:hidden text-white p-2"><i data-lucide="menu" class="w-5 h-5"></i></button>
+            <button type="button" id="mobileMenuBtn" class="md:hidden text-white p-2" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><i data-lucide="menu" class="w-5 h-5"></i></button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] flex flex-col" style="background:rgba(10,10,26,0.98);backdrop-filter:blur(20px)">
+    <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] flex flex-col" style="background:rgba(10,10,26,0.98);backdrop-filter:blur(20px)" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle" aria-hidden="true">
         <div class="flex items-center justify-between px-6 h-16">
             <div class="flex items-center gap-2.5">
                 <svg class="nav-jelly" viewBox="0 0 24 24" fill="none">
@@ -204,9 +77,9 @@
                     <path class="nav-jelly-tent" style="--tx:15.5px;--ty:13px;--sw:5deg;--td:-0.5s;--spd:2.4s" d="M15.5 13 Q16 18 16 22" stroke="rgba(255,255,255,0.55)" stroke-width="1" stroke-linecap="round"/>
                     <path class="nav-jelly-tent" style="--tx:17.5px;--ty:12.5px;--sw:-4deg;--td:-0.85s;--spd:1.9s" d="M17.5 12.5 Q18 18 19 22" stroke="rgba(255,255,255,0.5)" stroke-width="0.9" stroke-linecap="round"/>
                 </svg>
-                <span class="text-white font-semibold text-sm">jer-hub</span>
+                <span id="mobileMenuTitle" class="text-white font-semibold text-sm">jer-hub</span>
             </div>
-            <button id="mobileMenuClose" class="text-white p-2"><i data-lucide="x" class="w-5 h-5"></i></button>
+            <button type="button" id="mobileMenuClose" class="text-white p-2" aria-label="Close menu"><i data-lucide="x" class="w-5 h-5"></i></button>
         </div>
         <div class="flex flex-col items-center justify-center flex-1 gap-8">
             <a href="#about" class="text-xl text-slate-300 hover:text-white transition mobile-link">About</a>
@@ -416,7 +289,7 @@
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
                 <img id="footerAvatar" src="images/my-photo.jpg" alt="" class="w-5 h-5 rounded" style="background:#1e293b" onerror="this.style.display='none'">
-                <p class="text-xs text-slate-600">© 2025 jer-hub. Crafted with code & curiosity.</p>
+                <p class="text-xs text-slate-600">© 2026 jer-hub. Crafted with code & curiosity.</p>
             </div>
             <div class="flex items-center gap-5">
                 <a href="https://github.com/jer-hub" target="_blank" rel="noopener" class="text-slate-600 hover:text-glow-cyan transition">
@@ -429,209 +302,6 @@
         </div>
     </footer>
 
-<script>
-// ============================================
-// JELLYFISH
-// ============================================
-const jellyConfigs=[
-    {size:80,x:'8%',y:'15%',color:'#00d4ff',colorLight:'#66e5ff',glow:'rgba(0,212,255,0.15)',glowInner:'rgba(0,212,255,0.08)',pulseSpeed:4,waveSpeed:3.5,floatDuration:18,opacity:0.5},
-    {size:120,x:'85%',y:'25%',color:'#7b61ff',colorLight:'#a89bff',glow:'rgba(123,97,255,0.12)',glowInner:'rgba(123,97,255,0.06)',pulseSpeed:5,waveSpeed:4,floatDuration:22,opacity:0.4},
-    {size:60,x:'70%',y:'60%',color:'#ff61d8',colorLight:'#ff99e6',glow:'rgba(255,97,216,0.12)',glowInner:'rgba(255,97,216,0.06)',pulseSpeed:3.5,waveSpeed:3,floatDuration:15,opacity:0.35},
-    {size:100,x:'20%',y:'70%',color:'#4d8bff',colorLight:'#80abff',glow:'rgba(77,139,255,0.1)',glowInner:'rgba(77,139,255,0.05)',pulseSpeed:4.5,waveSpeed:3.8,floatDuration:20,opacity:0.3},
-    {size:45,x:'50%',y:'40%',color:'#00d4ff',colorLight:'#66e5ff',glow:'rgba(0,212,255,0.08)',glowInner:'rgba(0,212,255,0.04)',pulseSpeed:3,waveSpeed:2.5,floatDuration:14,opacity:0.25},
-    {size:70,x:'35%',y:'85%',color:'#7b61ff',colorLight:'#a89bff',glow:'rgba(123,97,255,0.08)',glowInner:'rgba(123,97,255,0.04)',pulseSpeed:3.8,waveSpeed:3.2,floatDuration:17,opacity:0.2},
-    {size:55,x:'92%',y:'80%',color:'#ff61d8',colorLight:'#ff99e6',glow:'rgba(255,97,216,0.08)',glowInner:'rgba(255,97,216,0.04)',pulseSpeed:4.2,waveSpeed:3.5,floatDuration:19,opacity:0.2}
-];
-function createJellyfish(c){
-    const j=document.createElement('div');j.className='jellyfish';
-    j.style.cssText=`left:${c.x};top:${c.y};--size:${c.size}px;--color:${c.color};--color-light:${c.colorLight};--glow:${c.glow};--glow-inner:${c.glowInner};--pulse-speed:${c.pulseSpeed}s;--wave-speed:${c.waveSpeed}s;opacity:${c.opacity};animation:jellyFloat ${c.floatDuration}s ease-in-out infinite`;
-    j.innerHTML=`<div class="jelly-body"></div><div class="tentacles"><div class="tentacle"></div><div class="tentacle"></div><div class="tentacle"></div><div class="tentacle"></div><div class="tentacle"></div><div class="tentacle"></div></div><div class="oral-arms"><div class="oral-arm"></div><div class="oral-arm"></div><div class="oral-arm"></div></div>`;
-    return j;
-}
-document.getElementById('jellyContainer').appendChild(Object.values(jellyConfigs).map(createJellyfish).reduce((f,c)=>(f.appendChild(c),f),document.createDocumentFragment()));
-
-// Particles
-const pColors=['#00d4ff','#7b61ff','#ff61d8','#4d8bff'];
-const pc=document.getElementById('particleContainer');
-for(let i=0;i<30;i++){const p=document.createElement('div');p.className='particle';const c=pColors[Math.floor(Math.random()*pColors.length)];p.style.cssText=`left:${Math.random()*100}%;--p-color:${c};--p-duration:${6+Math.random()*10}s;--p-delay:${Math.random()*10}s;width:${1+Math.random()*2}px;height:${1+Math.random()*2}px`;pc.appendChild(p)}
-
-// ============================================
-// TYPING
-// ============================================
-const phrases=['Building scalable web applications','Fullstack • Open Source • Clean Code','From concept to deployment','Pushing commits daily','Exploring new tech constantly'];
-let phraseIdx=0,charIdx=0,isDeleting=false;
-const typedEl=document.getElementById('typedText');
-function typeEffect(){const cur=phrases[phraseIdx];if(!isDeleting){typedEl.textContent=cur.substring(0,charIdx+1);charIdx++;if(charIdx===cur.length){isDeleting=true;setTimeout(typeEffect,2000);return}setTimeout(typeEffect,50+Math.random()*30)}else{typedEl.textContent=cur.substring(0,charIdx-1);charIdx--;if(charIdx===0){isDeleting=false;phraseIdx=(phraseIdx+1)%phrases.length;setTimeout(typeEffect,400);return}setTimeout(typeEffect,25)}}
-typeEffect();
-
-// ============================================
-// GITHUB API — SVG icon template
-// ============================================
-const GITHUB_SVG='<svg class="github-icon-inline w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>';
-
-const LANG_COLORS={JavaScript:'#f1e05a',TypeScript:'#3178c6',Python:'#3572A5',HTML:'#e34c26',CSS:'#563d7c',Java:'#b07219',Go:'#00ADD8',Rust:'#dea584',Ruby:'#701516',PHP:'#4F5D95',C:'#555555','C++':'#f34b7d','C#':'#178600',Swift:'#F05138',Kotlin:'#A97BFF',Shell:'#89e051',Dart:'#00B4AB',Lua:'#000080',R:'#198CE7',Scala:'#c22d40',Vue:'#41b883',Svelte:'#ff3e00',Dockerfile:'#384d54','Jupyter Notebook':'#DA5B0B',TeX:'#3D6117',SCSS:'#c6538c',Sass:'#a53b70',Less:'#1d365d'};
-
-let allRepos=[];
-
-async function fetchGitHub(){
-    try{
-        const[profileRes,reposRes]=await Promise.all([
-            fetch('https://api.github.com/users/jer-hub'),
-            fetch('https://api.github.com/users/jer-hub/repos?sort=updated&per_page=100&type=owner')
-        ]);
-        const profile=await profileRes.json();
-        allRepos=(await reposRes.json()).filter(r=>!r.fork);
-        populateProfile(profile);
-        populateRepos(allRepos);
-        populateLanguages(allRepos);
-        populateFilters(allRepos);
-    }catch(e){
-        console.error('GitHub fetch error:',e);
-        ['statRepos','statStars','statForks'].forEach(id=>document.getElementById(id).textContent='—');
-    }
-}
-
-function populateProfile(p){
-        // Avatar uses local photo (images/my-photo.jpg) — not overwritten by GitHub API
-    // Nav name
-    const name=p.name||p.login;
-    document.getElementById('navName').textContent=p.login;
-    document.getElementById('heroName').textContent=name;
-    document.title=`${name} — Fullstack Developer`;
-    // Bio
-    if(p.bio)document.getElementById('heroBio').innerHTML=p.bio.replace(/\n/g,'<br>');
-    // Status
-    const statusEl=document.getElementById('heroStatus');
-    let statusText='';
-    if(p.company)statusText+=p.company;
-    if(p.location)statusText+=(statusText?' · ':'')+p.location;
-    if(statusText)statusEl.querySelector('span:last-child').textContent=statusText;
-    // Stats
-    document.getElementById('statRepos').textContent=p.public_repos;
-    const totalStars=allRepos.reduce((s,r)=>s+r.stargazers_count,0);
-    const totalForks=allRepos.reduce((s,r)=>s+r.forks_count,0);
-    animateCounter('statStars',totalStars);
-    animateCounter('statForks',totalForks);
-}
-
-function animateCounter(id,target){
-    const el=document.getElementById(id);let current=0;
-    const inc=Math.max(1,Math.ceil(target/30));
-    const timer=setInterval(()=>{current+=inc;if(current>=target){el.textContent=target;clearInterval(timer)}else el.textContent=current},30);
-}
-
-function populateRepos(repos){
-    const grid=document.getElementById('reposGrid');grid.innerHTML='';
-    const sorted=[...repos].sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
-    sorted.forEach((repo,i)=>{
-        const card=document.createElement('a');card.href=repo.html_url;card.target='_blank';card.rel='noopener';
-        card.className='repo-card rounded-2xl p-6 block reveal repo-item';
-        card.dataset.lang=repo.language||'Other';card.style.transitionDelay=`${i*0.04}s`;
-        const langCol=LANG_COLORS[repo.language]||'#8b949e';
-        const timeAgo=getTimeAgo(repo.updated_at);
-        const desc=repo.description||'No description provided.';
-        card.innerHTML=`
-            <div class="flex items-start justify-between gap-4 mb-3">
-                <div class="flex items-center gap-2.5 min-w-0">
-                    ${GITHUB_SVG}
-                    <h3 class="text-sm font-semibold text-white truncate">${repo.name}</h3>
-                </div>
-                <svg class="w-4 h-4 text-slate-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </div>
-            <p class="text-xs text-slate-500 leading-relaxed mb-4" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${desc}</p>
-            <div class="flex items-center gap-4 flex-wrap">
-                ${repo.language?`<span class="flex items-center gap-1.5 text-xs text-slate-500"><span class="lang-dot" style="background:${langCol}"></span>${repo.language}</span>`:''}
-                ${repo.stargazers_count>0?`<span class="flex items-center gap-1 text-xs text-slate-600"><i data-lucide="star" class="w-3 h-3"></i>${repo.stargazers_count}</span>`:''}
-                ${repo.forks_count>0?`<span class="flex items-center gap-1 text-xs text-slate-600"><i data-lucide="git-fork" class="w-3 h-3"></i>${repo.forks_count}</span>`:''}
-                <span class="text-xs text-slate-700 ml-auto">${timeAgo}</span>
-            </div>`;
-        grid.appendChild(card);
-    });
-    lucide.createIcons();
-    document.querySelectorAll('.reveal:not(.active)').forEach(el=>observer.observe(el));
-}
-
-function populateLanguages(repos){
-    const langBytes={};
-    repos.forEach(r=>{if(r.language)langBytes[r.language]=(langBytes[r.language]||0)+(r.size||0)});
-    const total=Object.values(langBytes).reduce((a,b)=>a+b,0);
-    const sorted=Object.entries(langBytes).sort((a,b)=>b[1]-a[1]).slice(0,8);
-    const container=document.getElementById('langBars');container.innerHTML='';
-    if(!sorted.length){container.innerHTML='<p class="text-sm text-slate-500">No language data available.</p>';return}
-    sorted.forEach(([lang,bytes],i)=>{
-        const pct=((bytes/total)*100).toFixed(1);
-        const col=LANG_COLORS[lang]||'#8b949e';
-        const row=document.createElement('div');row.className='flex items-center gap-4';
-        row.style.cssText=`opacity:0;transform:translateX(-20px);transition:all 0.5s cubic-bezier(0.4,0,0.2,1) ${i*0.1}s`;
-        row.innerHTML=`
-            <span class="text-xs text-slate-400 w-28 text-right flex-shrink-0 truncate">${lang}</span>
-            <div class="flex-1 h-2 rounded-full" style="background:rgba(255,255,255,0.04)">
-                <div class="lang-bar" style="width:0%;background:${col};box-shadow:0 0 10px ${col}44"></div>
-            </div>
-            <span class="text-xs text-slate-600 w-12 text-right flex-shrink-0">${pct}%</span>`;
-        container.appendChild(row);
-        requestAnimationFrame(()=>{setTimeout(()=>{row.style.opacity='1';row.style.transform='translateX(0)';row.querySelector('.lang-bar').style.width=pct+'%'},100+i*100)});
-    });
-}
-
-function populateFilters(repos){
-    const langs=[...new Set(repos.map(r=>r.language).filter(Boolean))].sort();
-    const bar=document.getElementById('filterBar');
-    bar.innerHTML='<button class="filter-btn active px-4 py-1.5 rounded-lg text-xs font-medium transition" data-filter="all">All</button>';
-    langs.forEach(lang=>{const btn=document.createElement('button');btn.className='filter-btn px-4 py-1.5 rounded-lg text-xs font-medium transition';btn.dataset.filter=lang;btn.textContent=lang;bar.appendChild(btn)});
-    styleFilters();
-    bar.querySelectorAll('.filter-btn').forEach(btn=>{
-        btn.addEventListener('click',()=>{
-            bar.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-            btn.classList.add('active');styleFilters();
-            const filter=btn.dataset.filter;
-            document.querySelectorAll('.repo-item').forEach(item=>{
-                if(filter==='all'||item.dataset.lang===filter){
-                    item.style.display='block';item.style.opacity='0';item.style.transform='translateY(20px)';
-                    requestAnimationFrame(()=>{item.style.transition='all 0.4s';item.style.opacity='1';item.style.transform='translateY(0)'});
-                }else item.style.display='none';
-            });
-        });
-    });
-}
-
-function styleFilters(){
-    document.querySelectorAll('.filter-btn').forEach(btn=>{
-        if(btn.classList.contains('active')){btn.style.background='rgba(0,212,255,0.12)';btn.style.color='#00d4ff';btn.style.border='1px solid rgba(0,212,255,0.2)'}
-        else{btn.style.background='rgba(255,255,255,0.04)';btn.style.color='#94a3b8';btn.style.border='1px solid rgba(255,255,255,0.06)'}
-    });
-}
-
-function getTimeAgo(d){const diff=Math.floor((new Date()-new Date(d))/1000);if(diff<60)return'just now';if(diff<3600)return Math.floor(diff/60)+'m ago';if(diff<86400)return Math.floor(diff/3600)+'h ago';if(diff<2592000)return Math.floor(diff/86400)+'d ago';if(diff<31536000)return Math.floor(diff/2592000)+'mo ago';return Math.floor(diff/31536000)+'y ago'}
-
-fetchGitHub();
-
-// ============================================
-// SCROLL REVEAL
-// ============================================
-const observer=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('active')}),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-// ============================================
-// MOBILE MENU
-// ============================================
-const mobileMenu=document.getElementById('mobileMenu');
-document.getElementById('mobileMenuBtn').addEventListener('click',()=>mobileMenu.classList.add('open'));
-document.getElementById('mobileMenuClose').addEventListener('click',()=>mobileMenu.classList.remove('open'));
-document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>mobileMenu.classList.remove('open')));
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
-
-lucide.createIcons();
-
-// Hero avatar glow — activate on image load & when revealed
-const avatarGlow=document.getElementById('heroAvatarGlow');
-if(avatarGlow){
-    document.getElementById('avatarImg').addEventListener('load',()=>avatarGlow.classList.add('active'));
-    // Fallback: activate after 1s if image was cached
-    setTimeout(()=>{if(document.getElementById('avatarImg').complete)avatarGlow.classList.add('active')},1000);
-}
-</script>
+    <script src="script.js" defer></script>
 </body>
 </html>
