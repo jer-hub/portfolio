@@ -45,9 +45,26 @@ document.getElementById('jellyContainer').appendChild(
         .reduce((f, c) => (f.appendChild(c), f), document.createDocumentFragment())
 );
 
+if (window.matchMedia('(max-width: 767px)').matches) {
+    document.querySelectorAll('#jellyContainer .jellyfish').forEach((el, i) => {
+        if (i >= 3) {
+            el.remove();
+            return;
+        }
+        const sizeMatch = el.style.cssText.match(/--size:(\d+)px/);
+        if (sizeMatch) {
+            const next = Math.min(Number(sizeMatch[1]), 70);
+            el.style.setProperty('--size', `${next}px`);
+        }
+        const left = parseFloat(el.style.left);
+        if (!Number.isNaN(left) && left > 78) el.style.left = '70%';
+    });
+}
+
 const pColors = ['#00d4ff', '#7b61ff', '#ff61d8', '#4d8bff'];
 const pc = document.getElementById('particleContainer');
-for (let i = 0; i < 30; i++) {
+const particleCount = window.matchMedia('(max-width: 767px)').matches ? 12 : 30;
+for (let i = 0; i < particleCount; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
     const c = pColors[Math.floor(Math.random() * pColors.length)];
@@ -307,14 +324,14 @@ function populateLanguages(repos) {
         const col = LANG_COLORS[lang] || '#8b949e';
         const safeLang = escapeHtml(lang);
         const row = document.createElement('div');
-        row.className = 'flex items-center gap-4';
+        row.className = 'lang-row';
         row.style.cssText = `opacity:0;transform:translateX(-20px);transition:all 0.5s cubic-bezier(0.4,0,0.2,1) ${i * 0.1}s`;
         row.innerHTML = `
-            <span class="text-xs text-slate-400 w-28 text-right flex-shrink-0 truncate">${safeLang}</span>
-            <div class="flex-1 h-2 rounded-full" style="background:rgba(255,255,255,0.04)">
+            <span class="lang-row-label truncate">${safeLang}</span>
+            <div class="lang-row-track">
                 <div class="lang-bar" style="width:0%;background:${col};box-shadow:0 0 10px ${col}44"></div>
             </div>
-            <span class="text-xs text-slate-600 w-12 text-right flex-shrink-0">${pct}%</span>`;
+            <span class="lang-row-pct">${pct}%</span>`;
         container.appendChild(row);
         requestAnimationFrame(() => {
             setTimeout(() => {
@@ -411,6 +428,7 @@ function setMobileMenuOpen(open) {
     mobileMenu.classList.toggle('open', open);
     mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
     mobileMenuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.classList.toggle('menu-open', open);
     if (open) mobileMenuClose.focus();
     else mobileMenuBtn.focus();
 }

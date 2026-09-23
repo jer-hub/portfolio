@@ -32,13 +32,13 @@
 
     <div class="jellyfish-container" id="jellyContainer"></div>
     <div id="particleContainer"></div>
-    <div class="orb" style="width:600px;height:600px;background:#00d4ff;top:-200px;right:-200px"></div>
-    <div class="orb" style="width:500px;height:500px;background:#7b61ff;bottom:20%;left:-150px;opacity:0.08"></div>
-    <div class="orb" style="width:400px;height:400px;background:#ff61d8;top:50%;right:10%;opacity:0.05"></div>
+    <div class="orb" style="width:min(600px,80vw);height:min(600px,80vw);background:#00d4ff;top:-20vw;right:-20vw"></div>
+    <div class="orb" style="width:min(500px,70vw);height:min(500px,70vw);background:#7b61ff;bottom:20%;left:-15vw;opacity:0.08"></div>
+    <div class="orb" style="width:min(400px,60vw);height:min(400px,60vw);background:#ff61d8;top:50%;right:5%;opacity:0.05"></div>
 
     <!-- Nav -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:rgba(10,10,26,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.04)">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto page-pad h-16 flex items-center justify-between">
             <a href="#" class="flex items-center gap-2.5 group">
                 <svg class="nav-jelly" viewBox="0 0 24 24" fill="none">
                     <ellipse class="nav-jelly-bell" cx="12" cy="8" rx="8" ry="5.5" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round"/>
@@ -51,7 +51,7 @@
                 </svg>
                 <span class="text-white font-semibold text-sm tracking-tight" id="navName">jer-hub</span>
             </a>
-            <div class="hidden md:flex items-center gap-8">
+            <div class="hidden md:flex items-center gap-4 lg:gap-8">
                 <a href="#about" class="nav-link text-sm text-slate-400">About</a>
                 <a href="#experience" class="nav-link text-sm text-slate-400">Experience</a>
                 <a href="#skills" class="nav-link text-sm text-slate-400">Skills</a>
@@ -67,7 +67,7 @@
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] flex flex-col" style="background:rgba(10,10,26,0.98);backdrop-filter:blur(20px)" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle" aria-hidden="true">
-        <div class="flex items-center justify-between px-6 h-16">
+        <div class="flex items-center justify-between page-pad h-16">
             <div class="flex items-center gap-2.5">
                 <svg class="nav-jelly" viewBox="0 0 24 24" fill="none">
                     <ellipse class="nav-jelly-bell" cx="12" cy="8" rx="8" ry="5.5" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round"/>
@@ -96,7 +96,7 @@
     </div>
 
     <!-- Hero -->
-    <section class="relative min-h-screen flex items-center px-6 pt-24 pb-16 md:pt-20">
+    <section class="hero-section page-pad">
         <div class="relative z-10 max-w-6xl mx-auto w-full">
             <div class="hero-grid">
 
@@ -109,7 +109,7 @@
                 </div>
 
                 <!-- Right: Content -->
-                <div class="reveal" style="transition-delay:0.15s">
+                <div class="hero-content reveal" style="transition-delay:0.15s">
                     <div id="heroStatus" class="hero-tag">
                         <span class="hero-tag-dot"></span>
                         <span>Koronadal City, South Cotabato, Philippines</span>
@@ -128,12 +128,12 @@
 
                     <div class="hero-divider"></div>
 
-                    <div class="flex items-center gap-1.5 text-sm text-slate-500 mb-8">
-                        <span class="text-slate-300" id="typedText"></span>
+                    <div class="hero-typed">
+                        <span id="typedText"></span>
                         <span class="cursor-blink text-glow-cyan">|</span>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row items-start gap-3 mb-8">
+                    <div class="hero-actions">
                         <a href="documents/Jerwin_Carreon_CV_2026.pdf" download class="btn-primary">
                             <i data-lucide="download" class="w-4 h-4"></i> Download CV
                         </a>
@@ -162,7 +162,7 @@
         </div>
 
         <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
+        <div class="hero-scroll">
             <span class="text-[10px] text-slate-500 uppercase tracking-widest">Scroll</span>
             <div class="w-5 h-8 rounded-full border border-slate-600 flex items-start justify-center p-1">
                 <div class="w-1 h-2 rounded-full bg-slate-400 animate-bounce"></div>
@@ -171,40 +171,40 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="relative py-24 md:py-32 px-6">
+    <section id="about" class="relative section-pad page-pad">
         <div class="max-w-6xl mx-auto">
             <div class="reveal">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="w-8 h-[1px] bg-gradient-to-r from-glow-cyan to-transparent"></div>
                     <span class="text-xs font-medium text-glow-cyan uppercase tracking-widest">About</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Web developer and<br><span class="gradient-text-subtle">IT instructor.</span></h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Web developer and<br><span class="gradient-text-subtle">IT instructor.</span></h2>
                 <p class="text-slate-400 max-w-2xl leading-relaxed mb-4">I ship client projects end to end — front-end interfaces, Python back ends, databases, and deployment tooling — and use Cursor and Grok to speed up coding, research, and workflow automation.</p>
                 <p class="text-slate-400 max-w-2xl leading-relaxed">Alongside freelance development, I teach Computer Programming, Data Structures and Algorithms, Integrative Programming, and Human–Computer Interaction at Jose Maria College Foundation, Inc.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8 mt-12">
-                <div class="reveal glass-card rounded-2xl p-8">
+                <div class="reveal glass-card rounded-2xl card-pad">
                     <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.12)">
                         <i data-lucide="layers" class="w-5 h-5 text-glow-cyan"></i>
                     </div>
                     <h3 class="text-lg font-semibold text-white mb-3">Full-Stack Delivery</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">Build and maintain web apps for clients — e-commerce, inventory, blogs, library systems, clinic management, psychological testing platforms, and automated judge engines — with Django and REST API integration.</p>
                 </div>
-                <div class="reveal glass-card rounded-2xl p-8" style="transition-delay:0.1s">
+                <div class="reveal glass-card rounded-2xl card-pad" style="transition-delay:0.1s">
                     <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background:rgba(123,97,255,0.08);border:1px solid rgba(123,97,255,0.12)">
                         <i data-lucide="monitor" class="w-5 h-5 text-glow-purple"></i>
                     </div>
                     <h3 class="text-lg font-semibold text-white mb-3">Frontend &amp; Experience</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">Craft responsive interfaces with HTML, CSS, JavaScript, React.js, Next.js, Redux Toolkit, and jQuery/Ajax — focused on clear UX and maintainable front-end architecture.</p>
                 </div>
-                <div class="reveal glass-card rounded-2xl p-8" style="transition-delay:0.2s">
+                <div class="reveal glass-card rounded-2xl card-pad" style="transition-delay:0.2s">
                     <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background:rgba(255,97,216,0.08);border:1px solid rgba(255,97,216,0.12)">
                         <i data-lucide="graduation-cap" class="w-5 h-5 text-glow-pink"></i>
                     </div>
                     <h3 class="text-lg font-semibold text-white mb-3">Teaching &amp; Mentorship</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">Guide college students through practical coding work and core software development concepts across programming, algorithms, integrative technologies, and HCI courses.</p>
                 </div>
-                <div class="reveal glass-card rounded-2xl p-8" style="transition-delay:0.3s">
+                <div class="reveal glass-card rounded-2xl card-pad" style="transition-delay:0.3s">
                     <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background:rgba(77,139,255,0.08);border:1px solid rgba(77,139,255,0.12)">
                         <i data-lucide="sparkles" class="w-5 h-5 text-glow-blue"></i>
                     </div>
@@ -216,7 +216,7 @@
     </section>
 
     <!-- Experience -->
-    <section id="experience" class="relative py-24 md:py-32 px-6">
+    <section id="experience" class="relative section-pad page-pad">
         <div class="max-w-6xl mx-auto">
             <div class="reveal">
                 <div class="flex items-center gap-3 mb-4">
@@ -226,26 +226,26 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-12">Where I've<br><span class="gradient-text-subtle">been building.</span></h2>
             </div>
             <div class="space-y-6">
-                <article class="reveal glass-card rounded-2xl p-8 timeline-card">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+                <article class="reveal glass-card rounded-2xl card-pad timeline-card">
+                    <div class="timeline-meta mb-4">
                         <div>
                             <h3 class="text-lg font-semibold text-white">IT Instructor</h3>
                             <p class="text-sm text-glow-cyan mt-1">Jose Maria College Foundation, Inc.</p>
                         </div>
-                        <span class="text-xs text-slate-500 whitespace-nowrap">August 2022 – Present</span>
+                        <span class="timeline-date">August 2022 – Present</span>
                     </div>
                     <ul class="experience-list">
                         <li>Teach Computer Programming, Data Structures and Algorithms, Integrative Programming and Technologies, and Introduction to Human–Computer Interaction.</li>
                         <li>Guide students through practical coding work and core software development concepts.</li>
                     </ul>
                 </article>
-                <article class="reveal glass-card rounded-2xl p-8 timeline-card" style="transition-delay:0.1s">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+                <article class="reveal glass-card rounded-2xl card-pad timeline-card" style="transition-delay:0.1s">
+                    <div class="timeline-meta mb-4">
                         <div>
                             <h3 class="text-lg font-semibold text-white">Freelance Django / Python Developer</h3>
                             <p class="text-sm text-glow-cyan mt-1">Remote / Client projects</p>
                         </div>
-                        <span class="text-xs text-slate-500 whitespace-nowrap">June 2020 – Present</span>
+                        <span class="timeline-date">June 2020 – Present</span>
                     </div>
                     <ul class="experience-list">
                         <li>Build and maintain web applications for clients, including e-commerce sites, inventory systems, blog platforms, and a library management system.</li>
@@ -254,21 +254,21 @@
                         <li>Apply Cursor and Grok automation to accelerate development, debugging, documentation, and routine project tasks.</li>
                     </ul>
                 </article>
-                <article class="reveal glass-card rounded-2xl p-8 timeline-card" style="transition-delay:0.2s">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+                <article class="reveal glass-card rounded-2xl card-pad timeline-card" style="transition-delay:0.2s">
+                    <div class="timeline-meta mb-4">
                         <div>
                             <h3 class="text-lg font-semibold text-white">On-the-Job Trainee</h3>
                             <p class="text-sm text-glow-cyan mt-1">Jairosoft, Inc. · 230 hours</p>
                         </div>
-                        <span class="text-xs text-slate-500 whitespace-nowrap">February 2022 – June 2022</span>
+                        <span class="timeline-date">February 2022 – June 2022</span>
                     </div>
                     <ul class="experience-list">
                         <li>Created software mockups and storyboards in Miro for product design discussions.</li>
                         <li>Completed hands-on work with Angular on the front end and C# console programming.</li>
                     </ul>
                 </article>
-                <article class="reveal glass-card rounded-2xl p-8 timeline-card" style="transition-delay:0.3s">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+                <article class="reveal glass-card rounded-2xl card-pad timeline-card" style="transition-delay:0.3s">
+                    <div class="timeline-meta mb-4">
                         <div>
                             <h3 class="text-lg font-semibold text-white">JIA Workshop Participant</h3>
                             <p class="text-sm text-glow-cyan mt-1">Virtual workshops · 256 hours rendered</p>
@@ -283,7 +283,7 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="relative py-24 md:py-32 px-6">
+    <section id="skills" class="relative section-pad page-pad">
         <div class="max-w-6xl mx-auto">
             <div class="reveal">
                 <div class="flex items-center gap-3 mb-4">
@@ -293,14 +293,14 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-12">Technical toolkit<br><span class="gradient-text-subtle">from the CV.</span></h2>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="reveal glass-card rounded-2xl p-6">
+                <div class="reveal glass-card rounded-2xl card-pad">
                     <h3 class="text-sm font-semibold text-white mb-4 flex items-center gap-2"><i data-lucide="bot" class="w-4 h-4 text-glow-cyan"></i> AI &amp; Automation</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill px-3 py-1.5 rounded-lg text-xs text-slate-300">Cursor</span>
                         <span class="skill-pill px-3 py-1.5 rounded-lg text-xs text-slate-300">Grok</span>
                     </div>
                 </div>
-                <div class="reveal glass-card rounded-2xl p-6" style="transition-delay:0.05s">
+                <div class="reveal glass-card rounded-2xl card-pad" style="transition-delay:0.05s">
                     <h3 class="text-sm font-semibold text-white mb-4 flex items-center gap-2"><i data-lucide="layout" class="w-4 h-4 text-glow-purple"></i> Front-end</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill px-3 py-1.5 rounded-lg text-xs text-slate-300">HTML</span>
@@ -312,7 +312,7 @@
                         <span class="skill-pill px-3 py-1.5 rounded-lg text-xs text-slate-300">jQuery / Ajax</span>
                     </div>
                 </div>
-                <div class="reveal glass-card rounded-2xl p-6" style="transition-delay:0.1s">
+                <div class="reveal glass-card rounded-2xl card-pad" style="transition-delay:0.1s">
                     <h3 class="text-sm font-semibold text-white mb-4 flex items-center gap-2"><i data-lucide="server" class="w-4 h-4 text-glow-pink"></i> Back-end</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill px-3 py-1.5 rounded-lg text-xs text-slate-300">Python</span>
@@ -325,7 +325,7 @@
                         <span class="skill-pill px-3 py-1.5 rounded-lg text-xs text-slate-300">WebSockets</span>
                     </div>
                 </div>
-                <div class="reveal glass-card rounded-2xl p-6" style="transition-delay:0.15s">
+                <div class="reveal glass-card rounded-2xl card-pad" style="transition-delay:0.15s">
                     <h3 class="text-sm font-semibold text-white mb-4 flex items-center gap-2"><i data-lucide="database" class="w-4 h-4 text-glow-blue"></i> Data &amp; Tools</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill px-3 py-1.5 rounded-lg text-xs text-slate-300">PostgreSQL</span>
@@ -335,14 +335,14 @@
                         <span class="skill-pill px-3 py-1.5 rounded-lg text-xs text-slate-300">Machine Learning basics</span>
                     </div>
                 </div>
-                <div class="reveal glass-card rounded-2xl p-6" style="transition-delay:0.2s">
+                <div class="reveal glass-card rounded-2xl card-pad" style="transition-delay:0.2s">
                     <h3 class="text-sm font-semibold text-white mb-4 flex items-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4 text-glow-cyan"></i> CMS &amp; Commerce</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill px-3 py-1.5 rounded-lg text-xs text-slate-300">WordPress</span>
                         <span class="skill-pill px-3 py-1.5 rounded-lg text-xs text-slate-300">Shopify</span>
                     </div>
                 </div>
-                <div class="reveal glass-card rounded-2xl p-6" style="transition-delay:0.25s">
+                <div class="reveal glass-card rounded-2xl card-pad" style="transition-delay:0.25s">
                     <h3 class="text-sm font-semibold text-white mb-4 flex items-center gap-2"><i data-lucide="palette" class="w-4 h-4 text-glow-purple"></i> Design &amp; Office</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-pill px-3 py-1.5 rounded-lg text-xs text-slate-300">Photoshop</span>
@@ -359,7 +359,7 @@
     </section>
 
     <!-- Languages -->
-    <section id="languages" class="relative py-24 md:py-32 px-6">
+    <section id="languages" class="relative section-pad page-pad">
         <div class="max-w-6xl mx-auto">
             <div class="reveal">
                 <div class="flex items-center gap-3 mb-4">
@@ -368,7 +368,7 @@
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-12">Code on GitHub.<br><span class="gradient-text-subtle">Measured in bytes.</span></h2>
             </div>
-            <div class="reveal glass-card rounded-2xl p-8" id="langCard">
+            <div class="reveal glass-card rounded-2xl card-pad" id="langCard">
                 <div id="langBars" class="space-y-5">
                     <div class="skeleton h-8 w-full"></div>
                     <div class="skeleton h-8 w-3/4"></div>
@@ -380,7 +380,7 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="relative py-24 md:py-32 px-6">
+    <section id="projects" class="relative section-pad page-pad">
         <div class="max-w-6xl mx-auto">
             <div class="reveal">
                 <div class="flex items-center gap-3 mb-4">
@@ -394,7 +394,7 @@
                         <svg class="github-icon-inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
                     </a>
                 </div>
-                <div class="flex flex-wrap gap-2 mb-8" id="filterBar">
+                <div class="filter-bar" id="filterBar">
                     <button class="filter-btn active px-4 py-1.5 rounded-lg text-xs font-medium transition" data-filter="all">All</button>
                 </div>
             </div>
@@ -408,7 +408,7 @@
     </section>
 
     <!-- Education -->
-    <section id="education" class="relative py-24 md:py-32 px-6">
+    <section id="education" class="relative section-pad page-pad">
         <div class="max-w-6xl mx-auto">
             <div class="reveal">
                 <div class="flex items-center gap-3 mb-4">
@@ -418,36 +418,36 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-12">Academic<br><span class="gradient-text-subtle">background.</span></h2>
             </div>
             <div class="space-y-6">
-                <article class="reveal glass-card rounded-2xl p-8">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
+                <article class="reveal glass-card rounded-2xl card-pad">
+                    <div class="timeline-meta mb-2">
                         <div>
                             <h3 class="text-lg font-semibold text-white">Master in Information Technology <span class="text-sm font-normal text-glow-cyan">(ongoing)</span></h3>
                             <p class="text-sm text-slate-400 mt-1">University of Immaculate Conception, Davao City</p>
                         </div>
-                        <span class="text-xs text-slate-500 whitespace-nowrap">2023 – Present · 24 units earned</span>
+                        <span class="timeline-date">2023 – Present · 24 units earned</span>
                     </div>
                 </article>
-                <article class="reveal glass-card rounded-2xl p-8" style="transition-delay:0.1s">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
+                <article class="reveal glass-card rounded-2xl card-pad" style="transition-delay:0.1s">
+                    <div class="timeline-meta mb-3">
                         <div>
                             <h3 class="text-lg font-semibold text-white">Bachelor of Science in Information Technology</h3>
                             <p class="text-sm text-slate-400 mt-1">Jose Maria College Foundation Inc., Davao City</p>
                         </div>
-                        <span class="text-xs text-slate-500 whitespace-nowrap">2018 – 2022</span>
+                        <span class="timeline-date">2018 – 2022</span>
                     </div>
                     <p class="text-sm text-slate-500 leading-relaxed">Capstone: Computer-Aided Interpretation Tools for RIASEC and Personality Test with Machine Learning (Developer).</p>
                 </article>
-                <article class="reveal glass-card rounded-2xl p-8" style="transition-delay:0.2s">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                <article class="reveal glass-card rounded-2xl card-pad" style="transition-delay:0.2s">
+                    <div class="timeline-meta">
                         <div>
                             <h3 class="text-lg font-semibold text-white">TVL – Information and Communication Technology</h3>
                             <p class="text-sm text-slate-400 mt-1">Holy Trinity College of General Santos City</p>
                         </div>
-                        <span class="text-xs text-slate-500 whitespace-nowrap">2016 – 2018</span>
+                        <span class="timeline-date">2016 – 2018</span>
                     </div>
                 </article>
             </div>
-            <div class="reveal glass-card rounded-2xl p-8 mt-8" style="transition-delay:0.25s">
+            <div class="reveal glass-card rounded-2xl card-pad mt-8" style="transition-delay:0.25s">
                 <h3 class="text-sm font-semibold text-white mb-3 flex items-center gap-2"><i data-lucide="heart" class="w-4 h-4 text-glow-pink"></i> Core Strengths</h3>
                 <p class="text-sm text-slate-400 leading-relaxed">Self-disciplined and trainable; works well independently or in a team; communicates clearly; manages deadlines and pressure on client and academic projects; leverages AI tools for faster delivery.</p>
             </div>
@@ -455,15 +455,15 @@
     </section>
 
     <!-- Resume / CV -->
-    <section id="resume" class="relative py-24 md:py-32 px-6">
+    <section id="resume" class="relative section-pad page-pad">
         <div class="max-w-3xl mx-auto">
-            <div class="reveal glass-card rounded-2xl p-8 md:p-10 text-center">
+            <div class="reveal glass-card rounded-2xl card-pad md:p-10 text-center">
                 <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15)">
                     <i data-lucide="file-text" class="w-7 h-7 text-glow-cyan"></i>
                 </div>
                 <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mb-3">Curriculum Vitae</h2>
                 <p class="text-slate-400 mb-8 max-w-md mx-auto leading-relaxed">Download the full 2026 CV for experience, skills, education, and project details in PDF format.</p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <div class="hero-actions" style="margin-bottom:0;justify-content:center">
                     <a href="documents/Jerwin_Carreon_CV_2026.pdf" download class="btn-primary">
                         <i data-lucide="download" class="w-4 h-4"></i> Download CV (PDF)
                     </a>
@@ -476,7 +476,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="relative py-24 md:py-32 px-6">
+    <section id="contact" class="relative section-pad page-pad">
         <div class="max-w-3xl mx-auto text-center">
             <div class="reveal">
                 <div class="flex items-center justify-center gap-3 mb-4">
@@ -486,15 +486,15 @@
                 </div>
                 <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">Let's build<br><span class="gradient-text">something great.</span></h2>
                 <p class="text-slate-400 max-w-lg mx-auto mb-10 leading-relaxed">Open to freelance projects, collaborations, and opportunities. Based in Koronadal City, South Cotabato, Philippines.</p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-                    <a href="mailto:jerwin2000@gmail.com" class="btn-glow inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl text-sm font-semibold text-white" style="background:linear-gradient(135deg,#00d4ff,#7b61ff)">
+                <div class="contact-actions">
+                    <a href="mailto:jerwin2000@gmail.com" class="btn-glow inline-flex items-center gap-2.5 px-6 sm:px-8 py-3.5 rounded-xl text-sm font-semibold text-white" style="background:linear-gradient(135deg,#00d4ff,#7b61ff)">
                         <i data-lucide="mail" class="w-4 h-4"></i> jerwin2000@gmail.com
                     </a>
-                    <a href="tel:+639057833050" class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white transition" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
+                    <a href="tel:+639057833050" class="inline-flex items-center gap-2.5 px-6 sm:px-8 py-3.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white transition" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
                         <i data-lucide="phone" class="w-4 h-4"></i> 0905 783 3050
                     </a>
                 </div>
-                <div class="flex items-center justify-center gap-6">
+                <div class="contact-links">
                     <a href="https://github.com/jer-hub" target="_blank" rel="noopener" class="text-slate-500 hover:text-glow-cyan transition flex items-center gap-2 text-sm">
                         <svg class="github-icon-inline w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                         github.com/jer-hub
@@ -508,7 +508,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="relative py-8 px-6" style="border-top:1px solid rgba(255,255,255,0.04)">
+    <footer class="relative py-8 page-pad" style="border-top:1px solid rgba(255,255,255,0.04)">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
                 <img id="footerAvatar" src="images/my-photo.jpg" alt="" class="w-5 h-5 rounded" style="background:#1e293b" onerror="this.style.display='none'">
