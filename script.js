@@ -58,7 +58,13 @@ for (let i = 0; i < 30; i++) {
 // ============================================
 // TYPING
 // ============================================
-const phrases = ['Building scalable web applications', 'Fullstack • Open Source • Clean Code', 'From concept to deployment', 'Pushing commits daily', 'Exploring new tech constantly'];
+const phrases = [
+    'React · Next.js · Django · REST APIs',
+    'Web Developer & IT Instructor',
+    'Full-stack client projects end to end',
+    'Teaching programming at the college level',
+    'Cursor & Grok for faster delivery'
+];
 let phraseIdx = 0;
 let charIdx = 0;
 let isDeleting = false;
@@ -192,18 +198,16 @@ async function fetchGitHub() {
 }
 
 function populateProfile(p) {
-    const name = p.name || p.login;
-    document.getElementById('navName').textContent = p.login;
-    document.getElementById('heroName').textContent = name;
-    document.title = `${name} — Fullstack Developer`;
-    const bioEl = document.getElementById('heroBio');
-    if (p.bio) setBioHtml(bioEl, p.bio);
+    // Keep CV-sourced name & bio; only sync nav handle and GitHub stats
+    document.getElementById('navName').textContent = p.login || 'jer-hub';
+    document.title = 'Jerwin A. Carreon — Web Developer & IT Instructor';
 
     const statusEl = document.getElementById('heroStatus');
-    let statusText = '';
-    if (p.company) statusText += p.company;
-    if (p.location) statusText += (statusText ? ' · ' : '') + p.location;
-    if (statusText) statusEl.querySelector('span:last-child').textContent = statusText;
+    const statusSpan = statusEl && statusEl.querySelector('span:last-child');
+    if (statusSpan) {
+        const location = p.location || 'Koronadal City, South Cotabato, Philippines';
+        statusSpan.textContent = location;
+    }
 
     const repos = Number(p.public_repos);
     document.getElementById('statRepos').textContent = Number.isFinite(repos) ? String(repos) : '—';
